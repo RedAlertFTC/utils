@@ -28,30 +28,29 @@ public class MecanumDrive {
     }
 
     public MecanumDrive() {
-        String[] mapValues = {"motorLeftA", "motorRightA", "motorLeftB", "motorRightB"};
-        new MecanumDrive(false, mapValues);
+        new MecanumDrive(false, new String[]{"motorLeftA", "motorRightA", "motorLeftB", "motorRightB"});
     }
 
     public void InitMotors(HardwareMap hardwareMap) {
-        motorRightA = hardwareMap.dcMotor.get(motorNames[1]);
-        motorRightB = hardwareMap.dcMotor.get(motorNames[3]);
-        motorLeftA = hardwareMap.dcMotor.get(motorNames[0]);
-        motorLeftB = hardwareMap.dcMotor.get(motorNames[2]);
+        motorLeftA = hardwareMap.dcMotor.get("motorLeftA");
+        motorRightA = hardwareMap.dcMotor.get("motorRightA");
+        motorLeftB = hardwareMap.dcMotor.get("motorLeftB");
+        motorRightB = hardwareMap.dcMotor.get("motorRightB");
 
-        motorRightA.setDirection(DcMotor.Direction.REVERSE);
-        motorRightB.setDirection(DcMotor.Direction.REVERSE);
         motorLeftA.setDirection(DcMotor.Direction.FORWARD);
+        motorRightA.setDirection(DcMotor.Direction.REVERSE);
         motorLeftB.setDirection(DcMotor.Direction.FORWARD);
+        motorRightB.setDirection(DcMotor.Direction.REVERSE);
 
-        motorRightA.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
-        motorRightB.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
         motorLeftA.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
+        motorRightA.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
         motorLeftB.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
+        motorRightB.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
 
-        powerRightA = 0;
-        powerRightB = 0;
         powerLeftA = 0;
+        powerRightA = 0;
         powerLeftB = 0;
+        powerRightB = 0;
     }
 
     public void update(double velocity, double strafe, double rotation) {

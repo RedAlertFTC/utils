@@ -10,10 +10,6 @@ import org.firstinspires.ftc.robotcore.external.navigation.VuforiaTrackable;
 import org.firstinspires.ftc.robotcore.external.navigation.VuforiaTrackableDefaultListener;
 import org.firstinspires.ftc.robotcore.external.navigation.VuforiaTrackables;
 
-/**
- * Created by thebiteffect on 12/7/2017.
- */
-
 public class VuMarkForia {
 
     // Lots of Vuforia inits
@@ -32,11 +28,13 @@ public class VuMarkForia {
 
         parameters.vuforiaLicenseKey = key;
 
-        parameters.cameraDirection = VuforiaLocalizer.CameraDirection.BACK;
+        parameters.cameraDirection = cameraDirection;
         this.vuforia = ClassFactory.createVuforiaLocalizer(parameters); // Create the Vuforia instance.
 
         relicTrackables = this.vuforia.loadTrackablesFromAsset("RelicVuMark");
         relicTemplate = relicTrackables.get(0);
+        relicTemplate.setName("relicVuMarkTemplate"); // could possibly help in debugging
+
     }
 
     public VuMarkForia(HardwareMap hardwareMap, String key, VuforiaLocalizer.CameraDirection cameraDirection) {
@@ -44,7 +42,7 @@ public class VuMarkForia {
     }
 
     public VuMarkForia(HardwareMap hardwareMap, String key) {
-        new VuMarkForia(hardwareMap, key, VuforiaLocalizer.CameraDirection.BACK, false);
+        new VuMarkForia(hardwareMap, key, VuforiaLocalizer.CameraDirection.BACK);
     }
 
     public void init() {
@@ -52,12 +50,11 @@ public class VuMarkForia {
     }
 
     public RelicRecoveryVuMark getCurrentVuMark() {
-        RelicRecoveryVuMark vuMark = RelicRecoveryVuMark.from(relicTemplate);
-        return vuMark;
+        return RelicRecoveryVuMark.from(relicTemplate);
     }
 
     public OpenGLMatrix getRelativeLocation() {
-        OpenGLMatrix pose = ((VuforiaTrackableDefaultListener) relicTemplate.getListener()).getPose();
+        lastLocation = ((VuforiaTrackableDefaultListener) relicTemplate.getListener()).getPose();
         return lastLocation;
     }
 

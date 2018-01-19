@@ -26,10 +26,10 @@ public class MatrixUtils {
         if (Math.abs((b.getTranslation().get(0)) - (a.getTranslation().get(0))) <= deadZone) {
             return false;
         }
-        if (Math.abs((b.getTranslation().get(1)) - (a.getTranslation().get(1))) <= 1) {
+        if (Math.abs((b.getTranslation().get(1)) - (a.getTranslation().get(1))) <= deadZone) {
             return false;
         }
-        if (Math.abs((b.getTranslation().get(2)) - (a.getTranslation().get(2))) <= 1) {
+        if (Math.abs((b.getTranslation().get(2)) - (a.getTranslation().get(2))) <= deadZone) {
             return false;
         }
         if (Math.abs((Orientation.getOrientation(b, AxesReference.EXTRINSIC, AxesOrder.XYZ, AngleUnit.DEGREES).firstAngle) - Orientation.getOrientation(a, AxesReference.EXTRINSIC, AxesOrder.XYZ, AngleUnit.DEGREES).firstAngle) <= deadZone) {

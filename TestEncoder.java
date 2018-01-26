@@ -10,7 +10,7 @@ import static android.os.SystemClock.sleep;
  * Created by zacha on 1/25/2018.
  */
 
-@TeleOp(name = "Encoder Tester", group = "PanicDEBUG")
+@TeleOp(name = "Encoder Tester", group = "DEBUG")
 public class TestEncoder extends OpMode {
     DcMotor motorWithEncoder;
     boolean lastYInput = false, thisYInput = false;

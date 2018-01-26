@@ -3,10 +3,6 @@ package org.firstinspires.ftc.teamcode.utils;
 import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.HardwareMap;
 
-/**
- * Created by thebiteffect on 11/8/17.
- */
-
 public class MecanumDrive {
 
     public DcMotor motorLeftA,

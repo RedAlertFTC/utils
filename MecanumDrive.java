@@ -52,11 +52,10 @@ public class MecanumDrive {
     public void update(double velocity, double strafe, double rotation) {
 
         strafe = -strafe;
-        rotation = -rotation;
 
-        powerRightA = velocity + rotation + strafe;
+        powerRightA = - velocity + rotation + strafe;
         powerRightB = velocity + rotation - strafe;
-        powerLeftA = velocity - rotation - strafe;
+        powerLeftA = - velocity - rotation - strafe;
         powerLeftB = velocity - rotation + strafe;
 
         motorRightA.setPower(powerRightA);

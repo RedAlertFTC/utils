@@ -35,7 +35,7 @@ public class MecanumDrive {
         new MecanumDrive(false, new String[]{"motorLeftA", "motorRightA", "motorLeftB", "motorRightB"});
     }
 
-    public void InitMotors(HardwareMap hardwareMap) {
+    public void init(HardwareMap hardwareMap) {
         motorLeftA = hardwareMap.dcMotor.get("motorLeftA");
         motorRightA = hardwareMap.dcMotor.get("motorRightA");
         motorLeftB = hardwareMap.dcMotor.get("motorLeftB");

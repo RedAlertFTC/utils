@@ -5,11 +5,7 @@ import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 import com.qualcomm.robotcore.hardware.Servo;
 import com.qualcomm.robotcore.util.Range;
 
-/**
- * Created by thebiteffect on 10/21/17.
- */
-
-@TeleOp(name = "PanicDEBUG: Calibrate Servo", group = "PanicDEBUG")
+@TeleOp(name = "DEBUG: Calibrate Servo", group = "DEBUG")
 public class ServoCalibrate extends LinearOpMode {
 
     Servo servoA,
